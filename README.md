@@ -27,6 +27,7 @@ After above steps, you might not be able to run Python3 directly because your /u
 ```JavaScript
 $ ln -s /usr/local/python3.6/bin/python3.6 /usr/bin/python3
 $ ln -s /usr/local/python3.6/bin/python3.6 /usr/bin/python3.6
+$ ln -s /usr/local/python3.6/bin/pip3.6 /usr/bin/pip3
 
 ```
 
@@ -35,3 +36,20 @@ $ ln -s /usr/local/python3.6/bin/python3.6 /usr/bin/python3.6
 $ yum -y install openssl-devel zlib-devel bzip2-devel sqlite-devel readline-devel libffi-devel systemtap-sdt-devel
 
 ```
+
+## VSCode and Pipenv
+Pipenv虚拟环境本质上其实就是一个安装了Python解释器以及Python Packages的目录，所谓的激活虚拟环境，本质上也就是将虚拟环境目录中的Python解释器作为当前shell的Python解释器。弄清楚了这一点后，就不难知道如何使用VSCode来调试Pipenv虚拟环境的Python项目了：就算要让VSCode将虚拟环境目录中的Python解释器作为当前shell的Python解释器。
+
+Ctrl+Shift+P打开VSCode配置面板，找到python:Select Interpreter，可以看到当前可设置的Python解释器。VSCode Python extension 不仅能自动检测到安装在标准目录中的Python解释器，还能检测到虚拟环境下的Python解释器。
+
+可是初始时，我们在python:Select Interpreter提供的选项列表中并不能看到项目虚拟环境的Python解释器。原因是VSCode（确切地说应该是Python extension）并不知道我们的虚拟环境目录在哪儿。因此我们需要做的就是给VSCode设置一下Python虚拟环境目录：
+```javascript
+// settings.json
+{
+    ...
+    ...
+    "python.venvPath": "/home/XXXX/.local/share/virtualenvs"
+}
+```
+
+重启VSCode之后，就能python:Select Interpreter提供的解释器列表中看到我们虚拟环境下的Python解释器。选择项目对应的虚拟环境Python解释器后，就能开始调试任务了。
