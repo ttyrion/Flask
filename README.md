@@ -37,7 +37,7 @@ $ yum -y install openssl-devel zlib-devel bzip2-devel sqlite-devel readline-deve
 
 ```
 
-## VSCode and Pipenv
+# VSCode and Pipenv
 Pipenv虚拟环境本质上其实就是一个安装了Python解释器以及Python Packages的目录，所谓的激活虚拟环境，本质上也就是将虚拟环境目录中的Python解释器作为当前shell的Python解释器。弄清楚了这一点后，就不难知道如何使用VSCode来调试Pipenv虚拟环境的Python项目了：就算要让VSCode将虚拟环境目录中的Python解释器作为当前shell的Python解释器。
 
 Ctrl+Shift+P打开VSCode配置面板，找到python:Select Interpreter，可以看到当前可设置的Python解释器。VSCode Python extension 不仅能自动检测到安装在标准目录中的Python解释器，还能检测到虚拟环境下的Python解释器。
