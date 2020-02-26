@@ -53,3 +53,12 @@ Ctrl+Shift+P打开VSCode配置面板，找到python:Select Interpreter，可以�
 ```
 
 重启VSCode之后，就能python:Select Interpreter提供的解释器列表中看到我们虚拟环境下的Python解释器。选择项目对应的虚拟环境Python解释器后，就能开始调试任务了。
+
+
+# Pip install 速度慢的处理办法
+可以用以下方式指定其他安装包源：
+```javascript
+
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pipenv
+
+```
